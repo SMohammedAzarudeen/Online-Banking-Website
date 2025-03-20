@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank of America - Deposit Amount</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styling */
+        body {
+            font-family: Arial, sans-serif;
+            background: #f9f9f9;
+            color: #333;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Navbar styling */
+        .navbar {
+            background: #1e3a8a;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: #d1d5db;
+        }
+
+        /* Animation Effect */
+        .fade-out {
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(-10px);
+            animation: fadeIn 0.3s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Form Container */
+        .form-container {
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 30px;
+            width: 80%;
+            max-width: 500px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border: 1px solid #e5e7eb;
+            margin-top: 50px;
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        }
+
+        h2 {
+            font-size: 28px;
+            color: #1e40af;
+            margin-bottom: 20px;
+        }
+
+        /* Input Fields */
+        .form-container input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: 1px solid #d1d5db;
+            font-size: 16px;
+            background: #f9fafb;
+            color: #1f2937;
+        }
+
+        .form-container input:focus {
+            border-color: #1e40af;
+            outline: none;
+            box-shadow: 0 0 5px rgba(30, 64, 175, 0.3);
+        }
+
+        /* Button Styling */
+        .form-container button {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            width: 100%;
+            margin-top: 10px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .form-container button:hover {
+            background-color: #1d4ed8;
+            transform: scale(1.05);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .form-container {
+                width: 90%;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            .navbar {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .navbar .nav-links {
+                margin-top: 10px;
+            }
+        }
+        .success-message {
+            color: green;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .error-message {
+            color: red;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar fade-in">
+        <div class="logo">Bank of America</div>
+        <div class="nav-links">
+            <a href="#" onclick="navigateTo('accdashboard')">🏢Home</a>
+            <a href="#" onclick="navigateTo('customercare')">📞Customer Care</a>
+            <a href="features" onclick="navigateTo('accdashboard')">✨ Features</a>
+             <a href="security" onclick="navigateTo('security')">🔒 Security</a>
+            <a href="aboutus" onclick="navigateTo('aboutus')">ℹ️ About Us</a>
+        </div>
+    </div>
+    <div class="page fade-in" id="content">
+        <div class="form-container fade-in">
+            <h2>Withdraw Amount</h2>
+            <form method="POST" action="">
+                {{#if errorMessage}}
+            <p class="{{#if isSuccess}}success-message{{else}}error-message{{/if}}">{{errorMessage}}</p>
+        {{/if}}
+                <input type="text" name="name" placeholder="Username" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <input type="number" name="amount" placeholder="Amount to Withdraw" required min="1">
+                <button type="submit" onclick="am()">Withdraw</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        function am() {
+            document.querySelector('.form-container').classList.add('fade-out');
+            setTimeout(() => {
+                alert("Amount Credited Successfully");
+                document.querySelector('.form-container').classList.remove('fade-out');
+            }, 300);
+        }
+
+        function navigateTo(page) {
+            const content = document.getElementById('content');
+            content.classList.add('fade-out');
+            setTimeout(() => {
+                window.location.href = page;
+            }, 300);
+        }
+    </script>
+</body>
+</html>
