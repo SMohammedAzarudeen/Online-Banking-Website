@@ -1,1 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account - Bank Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
 
+        /* Navbar Styles */
+        nav {
+            width: 100%;
+            background-color: darkblue;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 16px;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Account Container Styles */
+        .account-container {
+            background-color: white;
+            padding: 30px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            width: 350px;
+            text-align: center;
+            margin-top: 80px; /* Adjust margin to account for fixed navbar */
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        input[type="text"], input[type="email"], input[type="password"], input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .back-link {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .back-link a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        .linke {
+            margin-top: 10px;
+        }
+
+        .al {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">
+            
+            <span>🏦Bank of America</span>
+        </div>
+        <div class="nav-links">
+            <a href="/">🏦Home</a>
+            <a href="/customer-service">📞Customer Service</a>
+        </div>
+    </nav>
+
+    <!-- Account Creation Form -->
+    <div class="account-container">
+        <h2>Create Account</h2>
+        <form action="" method="POST">
+            {{#if errorMessage}}
+                <p style="color: red;">{{errorMessage}}</p>
+            {{/if}}
+            <input type="text" id="fullname" name="name" placeholder="Username" required>
+            <input type="number" id="fullname" name="accnum" placeholder="Account Number" required>
+            <input type="number" id="fullname" name="phno" placeholder="Phone Number" required>
+            <input type="text" id="fullname" name="ifsc" placeholder="IFSC Code" required>
+            <input type="email" id="email" name="email" placeholder="Email Address" required>
+            <input type="password" id="password" name="password" placeholder="Create Password" required>
+            <input type="password" id="confirm-password" name="conformpassword" placeholder="Confirm Password" required>
+            <button type="submit" onclick="sucess()" class="bca">Create Account</button>
+            <div class="linke">
+                <p style="display: inline;" class="al">Already Have An Account ?</p>
+                <a href="/login">Log in</a>
+            </div>
+        </form>
+        <div class="back-link">
+            <script>
+                function sucess() {
+                    alert("Account Created Successfully, Now You Can Login");
+                }
+            </script>
+        </div>
+    </div>
+</body>
+</html>
