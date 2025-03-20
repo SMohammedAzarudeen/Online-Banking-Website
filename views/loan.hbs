@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Application - Bank of America</title>
+    <style>
+        /* General reset for margins and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fa;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Header styling */
+        header {
+            width: 100%;
+            background-color: #004F98; /* Bank of America Blue */
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .bank-name h1 {
+            font-size: 24px;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        /* Navbar styling */
+        .navbar {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: #4CAF50; /* Green on hover */
+        }
+
+        /* Hero Section Styling */
+        .hero {
+            background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1611&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .hero-content h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+        }
+
+        /* Loan application form styling */
+        .loan-application-form {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 100%;
+            max-width: 500px;
+            margin-bottom: 40px;
+        }
+
+        .loan-application-form h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        /* Form group for labels and inputs */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: #004F98;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 79, 152, 0.5);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        /* Submit button styling */
+        .submit-btn {
+            margin-top: 30px;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            color: white;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+
+        .submit-btn:focus {
+            outline: none;
+        }
+
+        /* Loan options dropdown styling */
+        .loanoption select {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #fff;
+            cursor: pointer;
+            appearance: none;
+        }
+
+        .loanoption select:focus {
+            border-color: #004F98;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 79, 152, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="bank-name">
+            <h1>🏦 Bank of America</h1>
+        </div>
+        <nav class="navbar">
+            <a href="accdashboard">🏢 Home</a>
+            <a href="customercare">📞 Customer Care</a>
+            <a href="features"></a>
+            <a href="customercare" onclick="navigateTo('customercare')">📞 Customer Care</a>
+            <a href="security" onclick="navigateTo('security')">🔒 Security</a>
+            <a href="aboutus" onclick="navigateTo('aboutus')">ℹ️ About Us</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Get the Loan You Need</h2>
+            <p>Flexible loan options tailored to your financial goals. Apply now!</p>
+        </div>
+    </section>
+
+    <!-- Loan Application Form -->
+    <div class="loan-application-form">
+        <h2>Loan Application Form</h2>
+        <form action="" method="POST">
+            <div class="form-group">
+                <label for="username">👤 Username:</label>
+                <input type="text" id="username" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="accountno">📄 Account Number:</label>
+                <input type="text" id="accountno" name="accnum" required>
+            </div>
+
+            <div class="form-group">
+                <label for="mobile">📱 Mobile Number:</label>
+                <input type="tel" id="mobile" name="phno" required>
+            </div>
+
+            <div class="form-group">
+                <label for="ifsc">🏛️ IFSC Code:</label>
+                <input type="text" id="ifsc" name="ifsc" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">📧 Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="loanamount">💰 Loan Amount:</label>
+                <input type="number" id="loanamount" name="loanamount" required>
+            </div>
+
+            <div class="form-group loanoption">
+                <label for="loan_option">📝 Reason for Loan:</label>
+                <select name="loan_option" id="loan_option" required>
+                    <option value="" disabled selected>Select a reason</option>
+                    <option value="Education">🎓 Education</option>
+                    <option value="Business">💼 Business</option>
+                    <option value="Hospital">🏥 Medical Expenses</option>
+                    <option value="Vehicle">🚗 Vehicle Purchase</option>
+                    <option value="Farming">🌾 Agriculture & Farming</option>
+                    <option value="House">🏠 Home Loan</option>
+                    <option value="Other">📦 Other</option>
+                </select>
+            </div>
+
+            <button type="submit" class="submit-btn" id="loansubmit" onclick="loansubmit()">Submit Loan Application</button>
+        </form>
+    </div>
+
+    <script>
+        function loansubmit() {
+            alert("Loan Request Submitted Successfully");
+        }
+    </script>
+</body>
+</html>
